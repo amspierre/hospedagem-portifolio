@@ -1,422 +1,235 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>########## — ########## & ##########</title>
+<title>LensFocus — Fotografia & Cinema</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --bg: #0a0a0a;
-    --bg2: #111111;
-    --bg3: #1a1a1a;
-    --border: rgba(255,255,255,0.08);
-    --gray: #888;
-    --silver: #bbb;
-    --white: #f0f0f0;
-  }
+:root {
+–bg: #0a0a0a;
+–bg2: #111111;
+–bg3: #1a1a1a;
+–border: rgba(255,255,255,0.08);
+–gray: #888;
+–silver: #bbb;
+–white: #f0f0f0;
+}
 
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; font-weight: 300; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
+body { background: var(–bg); color: var(–white); font-family: ‘Inter’, sans-serif; font-weight: 300; overflow-x: hidden; }
 
-  /* ── HEADER ── */
-  header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .logo {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 1.1rem; font-weight: 600; color: var(--white);
-    text-decoration: none; letter-spacing: 0.02em;
-  }
-  .logo svg { opacity: 0.9; }
-  nav { display: flex; gap: 36px; }
-  nav a {
-    font-size: 0.82rem; font-weight: 400; color: var(--silver);
-    text-decoration: none; transition: color 0.25s; letter-spacing: 0.01em;
-  }
-  nav a:hover { color: var(--white); }
+header {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
+padding: 18px 48px;
+background: rgba(10,10,10,0.85);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(–border);
+}
+.logo {
+display: flex; align-items: center; gap: 10px;
+font-size: 1.1rem; font-weight: 600; color: var(–white);
+text-decoration: none; letter-spacing: 0.02em;
+}
+nav { display: flex; gap: 36px; }
+nav a {
+font-size: 0.82rem; font-weight: 400; color: var(–silver);
+text-decoration: none; transition: color 0.25s;
+}
+nav a:hover { color: var(–white); }
 
-  /* ── HERO ── */
-  #home {
-    min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center;
-    background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 70%);
-    padding: 80px 24px 40px;
-    gap: 0;
-  }
+#home {
+min-height: 100vh;
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+text-align: center;
+background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 70%);
+padding: 80px 24px 40px;
+}
+.camera-wrap {
+margin-bottom: 40px;
+animation: floatCam 5s ease-in-out infinite;
+filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+}
+@keyframes floatCam { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
 
-  /* 3D CAMERA */
-  .camera-wrap {
-    margin-bottom: 40px;
-    animation: floatCam 5s ease-in-out infinite;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
-  }
-  @keyframes floatCam {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
+.hero-title {
+font-size: clamp(2.8rem, 7vw, 5.5rem);
+font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+color: var(–white); margin-bottom: 20px;
+}
+.hero-title span { color: var(–gray); font-weight: 300; }
+.hero-sub { font-size: 0.95rem; color: var(–gray); font-weight: 300; margin-bottom: 40px; }
 
-  .hero-title {
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--white);
-    margin-bottom: 20px;
-  }
-  .hero-title span { color: var(--gray); font-weight: 300; }
+.btn-primary {
+display: inline-block; padding: 14px 40px;
+border: 1px solid var(–white); color: var(–white); background: transparent;
+font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+text-transform: uppercase; text-decoration: none; cursor: pointer;
+transition: background 0.25s, color 0.25s;
+}
+.btn-primary:hover { background: var(–white); color: var(–bg); }
 
-  .hero-sub {
-    font-size: 0.95rem;
-    color: var(--gray);
-    font-weight: 300;
-    margin-bottom: 40px;
-  }
+.hero-arrow { margin-top: 48px; animation: bounce 2s ease-in-out infinite; color: var(–gray); }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
-  .btn-primary {
-    display: inline-block;
-    padding: 14px 40px;
-    border: 1px solid var(--white);
-    color: var(--white);
-    background: transparent;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.25s, color 0.25s;
-  }
-  .btn-primary:hover { background: var(--white); color: var(--bg); }
+section { padding: 100px 48px; }
+.section-center { text-align: center; }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(–white); margin-bottom: 12px; }
+.title-line { width: 40px; height: 2px; background: var(–white); margin: 0 auto 20px; }
+.section-desc { font-size: 0.9rem; color: var(–gray); max-width: 560px; margin: 0 auto; line-height: 1.7; }
 
-  .hero-arrow {
-    margin-top: 48px;
-    animation: bounce 2s ease-in-out infinite;
-    color: var(--gray);
-  }
-  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+#sobre { background: var(–bg); }
+.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 56px; border: 1px solid var(–border); }
+.card { padding: 44px 32px; background: var(–bg2); text-align: center; border-right: 1px solid var(–border); transition: background 0.25s; }
+.card:last-child { border-right: none; }
+.card:hover { background: var(–bg3); }
+.card-icon { margin-bottom: 18px; color: var(–white); }
+.card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; color: var(–white); }
+.card p { font-size: 0.82rem; color: var(–gray); line-height: 1.6; }
 
-  /* ── SECTION COMMONS ── */
-  section { padding: 100px 48px; }
-  .section-center { text-align: center; }
-  .section-title {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-  .title-line {
-    width: 40px; height: 2px;
-    background: var(--white);
-    margin: 0 auto 20px;
-  }
-  .section-desc {
-    font-size: 0.9rem;
-    color: var(--gray);
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
+#portfolio { background: var(–bg2); }
+.tabs { display: flex; justify-content: center; gap: 8px; margin: 40px 0 36px; flex-wrap: wrap; }
+.tab {
+padding: 10px 28px; border: 1px solid var(–border); background: transparent;
+color: var(–silver); font-size: 0.82rem; font-weight: 400; cursor: pointer;
+transition: all 0.25s; font-family: ‘Inter’, sans-serif;
+}
+.tab.active, .tab:hover { background: var(–white); color: var(–bg); border-color: var(–white); }
 
-  /* ── SOBRE ── */
-  #sobre { background: var(--bg); }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1px;
-    margin-top: 56px;
-    border: 1px solid var(--border);
-  }
-  .card {
-    padding: 44px 32px;
-    background: var(--bg2);
-    text-align: center;
-    border-right: 1px solid var(--border);
-    transition: background 0.25s;
-  }
-  .card:last-child { border-right: none; }
-  .card:hover { background: var(--bg3); }
-  .card-icon { margin-bottom: 18px; color: var(--white); }
-  .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; color: var(--white); }
-  .card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+.big-carousel { position: relative; overflow: hidden; margin-bottom: 16px; }
+.big-track { display: flex; transition: transform 0.5s cubic-bezier(.25,.46,.45,.94); }
+.big-slide { flex: 0 0 100%; height: 480px; background: var(–bg3); overflow: hidden; }
+.big-slide img { width:100%; height:100%; object-fit:cover; filter:grayscale(20%); transition:transform 0.5s; }
+.big-slide:hover img { transform: scale(1.03); }
 
-  /* ── PORTFÓLIO ── */
-  #portfolio { background: var(--bg2); }
-  .tabs {
-    display: flex; justify-content: center; gap: 8px;
-    margin: 40px 0 36px;
-    flex-wrap: wrap;
-  }
-  .tab {
-    padding: 10px 28px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--silver);
-    font-size: 0.82rem;
-    font-weight: 400;
-    cursor: pointer;
-    transition: all 0.25s;
-    font-family: 'Inter', sans-serif;
-  }
-  .tab.active, .tab:hover { background: var(--white); color: var(--bg); border-color: var(--white); }
+.carousel-arr {
+position: absolute; top:50%; transform:translateY(-50%);
+width:44px; height:44px; background: rgba(0,0,0,0.6);
+border: 1px solid var(–border); color: var(–white);
+display:flex; align-items:center; justify-content:center;
+cursor:pointer; transition: background 0.2s; z-index:2;
+}
+.carousel-arr:hover { background: rgba(255,255,255,0.12); }
+.arr-left { left:16px; }
+.arr-right { right:16px; }
 
-  /* BIG CAROUSEL */
-  .big-carousel { position: relative; overflow: hidden; margin-bottom: 16px; }
-  .big-track { display: flex; transition: transform 0.5s cubic-bezier(.25,.46,.45,.94); }
-  .big-slide {
-    flex: 0 0 100%;
-    height: 480px;
-    background: var(--bg3);
-    position: relative;
-    overflow: hidden;
-  }
-  .big-slide img { width:100%; height:100%; object-fit:cover; filter:grayscale(30%); }
-  .big-slide .ph {
-    width:100%; height:100%;
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
-    color: var(--gray);
-  }
-  .big-slide .ph svg { opacity:0.2; }
-  .big-slide .ph span { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; opacity:0.4; }
+.dots { display:flex; justify-content:center; gap:6px; margin: 12px 0 20px; }
+.dot { width:6px; height:6px; border-radius:50%; background: var(–bg3); border:1px solid var(–gray); cursor:pointer; transition:background 0.2s; }
+.dot.active { background: var(–white); border-color:var(–white); }
 
-  .carousel-arr {
-    position: absolute; top:50%; transform:translateY(-50%);
-    width:44px; height:44px;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid var(--border);
-    color: var(--white);
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    transition: background 0.2s;
-    z-index:2;
-  }
-  .carousel-arr:hover { background: rgba(255,255,255,0.12); }
-  .arr-left { left:16px; }
-  .arr-right { right:16px; }
+.thumb-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.thumb { width: 180px; height: 120px; background: var(–bg3); overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.thumb.active { border-color: var(–white); }
+.thumb img { width:100%; height:100%; object-fit:cover; filter:grayscale(20%); transition:transform 0.4s; }
+.thumb:hover img { transform: scale(1.08); }
 
-  .dots {
-    display:flex; justify-content:center; gap:6px; margin: 12px 0 20px;
-  }
-  .dot {
-    width:6px; height:6px; border-radius:50%;
-    background: var(--bg3); border:1px solid var(--gray);
-    cursor:pointer; transition:background 0.2s;
-  }
-  .dot.active { background: var(--white); border-color:var(--white); }
+#equipe { background: var(–bg); }
+.team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 56px; }
+.member { background: var(–bg2); border: 1px solid var(–border); overflow: hidden; transition: background 0.25s; }
+.member:hover { background: var(–bg3); }
+.member-photo { height: 280px; overflow: hidden; }
+.member-photo img { width:100%; height:100%; object-fit:cover; filter:grayscale(20%); transition:transform 0.5s; }
+.member:hover .member-photo img { transform:scale(1.04); }
+.member-info { padding: 24px; }
+.member-name { font-size: 1.1rem; font-weight: 600; color: var(–white); margin-bottom: 4px; }
+.member-role { font-size: 0.75rem; color: var(–gray); margin-bottom: 18px; }
+.member-contact { display:flex; flex-direction:column; gap:8px; }
+.mc-item { display:flex; align-items:center; gap:10px; font-size:0.78rem; color:var(–silver); text-decoration:none; transition:color 0.2s; }
+.mc-item:hover { color:var(–white); }
+.mc-item svg { flex-shrink:0; opacity:0.5; }
 
-  /* THUMB GRID */
-  .thumb-grid {
-    display: flex; gap: 12px; flex-wrap: wrap;
-  }
-  .thumb {
-    width: 180px; height: 120px;
-    background: var(--bg3);
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.2s;
-  }
-  .thumb.active { border-color: var(--white); }
-  .thumb img { width:100%; height:100%; object-fit:cover; filter:grayscale(30%); }
-  .thumb .ph-sm {
-    width:100%; height:100%;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--gray); font-size:0.6rem; letter-spacing:0.1em;
-    text-transform:uppercase; opacity:0.4;
-  }
+#visite { background: var(–bg2); padding: 100px 0; }
+.visite-inner { padding: 0 48px; }
+.visite-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 56px; border: 1px solid var(–border); }
+.visite-contacts { background: var(–bg2); }
+.contact-row { display: flex; align-items: flex-start; gap: 18px; padding: 24px 32px; border-bottom: 1px solid var(–border); transition: background 0.2s; }
+.contact-row:last-child { border-bottom: none; }
+.contact-row:hover { background: var(–bg3); }
+.contact-icon { width: 40px; height: 40px; background: var(–bg3); border: 1px solid var(–border); display:flex; align-items:center; justify-content:center; flex-shrink:0; color: var(–silver); }
+.contact-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(–gray); margin-bottom:4px; }
+.contact-val { font-size:0.85rem; color:var(–silver); text-decoration:none; transition:color 0.2s; }
+.contact-val:hover { color:var(–white); }
+.map-side { min-height: 400px; position:relative; overflow:hidden; }
+.map-side iframe { width:100%; height:100%; min-height:400px; border:none; filter: grayscale(100%) contrast(0.9) brightness(0.5); }
 
-  /* ── EQUIPE ── */
-  #equipe { background: var(--bg); }
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1px;
-    margin-top: 56px;
-  }
-  .member {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: background 0.25s;
-  }
-  .member:hover { background: var(--bg3); }
-  .member-photo {
-    height: 280px;
-    overflow: hidden;
-  }
-  .member-photo img {
-    width:100%; height:100%;
-    object-fit:cover;
-    filter:grayscale(20%);
-    transition:transform 0.5s;
-  }
-  .member:hover .member-photo img { transform:scale(1.04); }
-  .member-photo .ph-member {
-    width:100%; height:100%;
-    display:flex; align-items:center; justify-content:center;
-    background: var(--bg3);
-    color:var(--gray);
-  }
-  .member-info { padding: 24px; }
-  .member-name { font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-  .member-role { font-size: 0.75rem; color: var(--gray); margin-bottom: 18px; }
-  .member-contact { display:flex; flex-direction:column; gap:8px; }
-  .mc-item {
-    display:flex; align-items:center; gap:10px;
-    font-size:0.78rem; color:var(--silver);
-    text-decoration:none;
-    transition:color 0.2s;
-  }
-  .mc-item:hover { color:var(--white); }
-  .mc-item svg { flex-shrink:0; opacity:0.5; }
+footer {
+background: var(–bg); border-top: 1px solid var(–border);
+padding: 48px; display: flex; align-items: center;
+justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.footer-logo { display:flex; align-items:center; gap:10px; font-size:1rem; font-weight:600; color:var(–white); text-decoration:none; }
+.footer-copy { font-size:0.75rem; color:var(–gray); }
+.footer-links { display:flex; gap:24px; }
+.footer-links a { font-size:0.75rem; color:var(–gray); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(–white); }
 
-  /* ── NOS VISITE ── */
-  #visite { background: var(--bg2); padding: 100px 0; }
-  .visite-inner { padding: 0 48px; }
-  .visite-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    margin-top: 56px;
-    border: 1px solid var(--border);
-  }
-  .visite-contacts { background: var(--bg2); }
-  .contact-row {
-    display: flex; align-items: flex-start; gap: 18px;
-    padding: 24px 32px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-  }
-  .contact-row:last-child { border-bottom: none; }
-  .contact-row:hover { background: var(--bg3); }
-  .contact-icon {
-    width: 40px; height: 40px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-    color: var(--silver);
-  }
-  .contact-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray); margin-bottom:4px; }
-  .contact-val { font-size:0.85rem; color:var(--silver); text-decoration:none; transition:color 0.2s; }
-  .contact-val:hover { color:var(--white); }
-
-  .map-side { min-height: 400px; position:relative; overflow:hidden; }
-  .map-side iframe {
-    width:100%; height:100%; min-height:400px;
-    border:none;
-    filter: grayscale(100%) contrast(0.9) brightness(0.5);
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .footer-logo {
-    display:flex; align-items:center; gap:10px;
-    font-size:1rem; font-weight:600; color:var(--white);
-    text-decoration:none;
-  }
-  .footer-copy { font-size:0.75rem; color:var(--gray); }
-  .footer-links { display:flex; gap:24px; }
-  .footer-links a { font-size:0.75rem; color:var(--gray); text-decoration:none; transition:color 0.2s; }
-  .footer-links a:hover { color:var(--white); }
-
-  /* ── RESPONSIVE ── */
-  @media(max-width:900px){
-    header{ padding:16px 24px; }
-    nav{ display:none; }
-    section{ padding:80px 24px; }
-    .cards{ grid-template-columns:1fr; }
-    .card{ border-right:none; border-bottom:1px solid var(--border); }
-    .team-grid{ grid-template-columns:1fr; }
-    .visite-grid{ grid-template-columns:1fr; }
-    .thumb{ width:120px; height:80px; }
-    footer{ padding:32px 24px; flex-direction:column; align-items:flex-start; }
-  }
-  @media(max-width:600px){
-    .big-slide{ height:300px; }
-  }
+@media(max-width:900px){
+header{ padding:16px 24px; }
+nav{ display:none; }
+section{ padding:80px 24px; }
+.cards{ grid-template-columns:1fr; }
+.card{ border-right:none; border-bottom:1px solid var(–border); }
+.team-grid{ grid-template-columns:1fr; }
+.visite-grid{ grid-template-columns:1fr; }
+.thumb{ width:120px; height:80px; }
+footer{ padding:32px 24px; flex-direction:column; align-items:flex-start; }
+}
+@media(max-width:600px){ .big-slide{ height:300px; } }
 </style>
+
 </head>
 <body>
 
 <!-- HEADER -->
+
 <header>
   <a href="#home" class="logo">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
       <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
       <circle cx="12" cy="13" r="4"/>
     </svg>
-    ##########
+    LensFocus
   </a>
   <nav>
-    <a href="#sobre">##########</a>
-    <a href="#portfolio">##########</a>
-    <a href="#equipe">##########</a>
-    <a href="#visite">##########</a>
+    <a href="#sobre">Sobre Nós</a>
+    <a href="#portfolio">Nosso Portfólio</a>
+    <a href="#equipe">Nossa Equipe</a>
+    <a href="#visite">Contatos</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section id="home">
 
-  <!-- 3D CAMERA SVG -->
+<section id="home">
   <div class="camera-wrap">
     <svg width="200" height="160" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="hbody" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#3c3c3c"/>
-          <stop offset="100%" stop-color="#1a1a1a"/>
+          <stop offset="0%" stop-color="#3c3c3c"/><stop offset="100%" stop-color="#1a1a1a"/>
         </linearGradient>
         <linearGradient id="htop" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#4a4a4a"/>
-          <stop offset="100%" stop-color="#282828"/>
+          <stop offset="0%" stop-color="#4a4a4a"/><stop offset="100%" stop-color="#282828"/>
         </linearGradient>
         <linearGradient id="hside" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#141414"/>
-          <stop offset="100%" stop-color="#282828"/>
+          <stop offset="0%" stop-color="#141414"/><stop offset="100%" stop-color="#282828"/>
         </linearGradient>
         <radialGradient id="hlens" cx="40%" cy="38%" r="58%">
-          <stop offset="0%" stop-color="#505060"/>
-          <stop offset="50%" stop-color="#0d0d18"/>
-          <stop offset="100%" stop-color="#000"/>
+          <stop offset="0%" stop-color="#505060"/><stop offset="50%" stop-color="#0d0d18"/><stop offset="100%" stop-color="#000"/>
         </radialGradient>
         <radialGradient id="hglare" cx="32%" cy="28%" r="38%">
-          <stop offset="0%" stop-color="rgba(255,255,255,0.22)"/>
-          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          <stop offset="0%" stop-color="rgba(255,255,255,0.22)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
         </radialGradient>
       </defs>
-
-      <!-- shadow -->
       <ellipse cx="100" cy="155" rx="72" ry="6" fill="rgba(0,0,0,0.45)"/>
-
-      <!-- right face (3D depth) -->
       <polygon points="158,36 172,44 172,126 158,122" fill="url(#hside)"/>
-      <!-- bottom face -->
       <polygon points="42,122 158,122 172,126 56,126" fill="#141414"/>
-      <!-- top face -->
       <polygon points="42,34 158,34 172,44 56,44" fill="url(#htop)"/>
-      <!-- front face -->
       <rect x="42" y="34" width="116" height="88" rx="3" fill="url(#hbody)"/>
-
-      <!-- grip -->
       <rect x="42" y="34" width="22" height="88" rx="3" fill="#1e1e1e"/>
       <rect x="46" y="42" width="4" height="3" rx="1" fill="#141414" opacity="0.9"/>
       <rect x="46" y="50" width="4" height="3" rx="1" fill="#141414" opacity="0.9"/>
@@ -428,52 +241,36 @@
       <rect x="46" y="98" width="4" height="3" rx="1" fill="#141414" opacity="0.9"/>
       <rect x="46" y="106" width="4" height="3" rx="1" fill="#141414" opacity="0.9"/>
       <rect x="46" y="114" width="4" height="3" rx="1" fill="#141414" opacity="0.9"/>
-
-      <!-- viewfinder bump -->
       <rect x="128" y="22" width="34" height="14" rx="2" fill="#262626"/>
       <rect x="130" y="24" width="30" height="10" rx="1" fill="#141414"/>
-
-      <!-- shutter button -->
       <circle cx="78" cy="29" r="7" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="0.8"/>
       <circle cx="78" cy="29" r="4" fill="#1e1e1e"/>
       <circle cx="78" cy="29" r="2" fill="#333"/>
-
-      <!-- mode dial -->
       <rect x="96" y="22" width="26" height="14" rx="7" fill="#252525" stroke="#333" stroke-width="0.8"/>
       <circle cx="109" cy="29" r="5" fill="#1a1a1a"/>
       <line x1="109" y1="25" x2="109" y2="27" stroke="#777" stroke-width="1.2"/>
-
-      <!-- lens barrel -->
       <circle cx="94" cy="78" r="42" fill="#181818" stroke="#2e2e2e" stroke-width="1"/>
       <circle cx="94" cy="78" r="38" fill="#141414" stroke="#252525" stroke-width="1"/>
       <circle cx="94" cy="78" r="34" fill="#111" stroke="#222" stroke-width="6"/>
       <circle cx="94" cy="78" r="30" fill="url(#hlens)"/>
       <circle cx="94" cy="78" r="22" fill="rgba(0,0,6,0.85)"/>
       <circle cx="94" cy="78" r="14" fill="#020208"/>
-      <!-- glare -->
       <circle cx="94" cy="78" r="30" fill="url(#hglare)"/>
-      <!-- lens coating -->
       <ellipse cx="83" cy="65" rx="7" ry="4" fill="rgba(80,100,150,0.1)" transform="rotate(-30 83 65)"/>
-
-      <!-- LCD panel -->
       <rect x="142" y="52" width="26" height="18" rx="1.5" fill="#0d1018" stroke="#222" stroke-width="0.8"/>
       <rect x="144" y="54" width="22" height="14" fill="#090c12" opacity="0.9"/>
       <line x1="146" y1="59" x2="164" y2="59" stroke="#151c28" stroke-width="0.8"/>
       <line x1="146" y1="63" x2="164" y2="63" stroke="#151c28" stroke-width="0.8"/>
       <rect x="146" y="56" width="8" height="2" rx="0.5" fill="#0e2a18" opacity="0.7"/>
-
-      <!-- brand text -->
-      <text x="74" y="116" font-family="Inter,sans-serif" font-size="4.5" fill="#3a3a3a" letter-spacing="2">##########</text>
-
-      <!-- strap lugs -->
+      <text x="62" y="116" font-family="Inter,sans-serif" font-size="4.5" fill="#3a3a3a" letter-spacing="2">LENSFOCUS</text>
       <rect x="42" y="50" width="5" height="12" rx="1.5" fill="#1e1e1e" stroke="#2e2e2e" stroke-width="0.6"/>
       <rect x="158" y="50" width="5" height="12" rx="1.5" fill="#1e1e1e" stroke="#2e2e2e" stroke-width="0.6"/>
     </svg>
   </div>
 
-  <h1 class="hero-title">##########<br><span>##########</span></h1>
-  <p class="hero-sub">########## ########## ########## ##########</p>
-  <a href="#portfolio" class="btn-primary">##########</a>
+  <h1 class="hero-title">Capturamos<br><span>Momentos Eternos</span></h1>
+  <p class="hero-sub">Fotografia e cinema que contam histórias autênticas</p>
+  <a href="#portfolio" class="btn-primary">Ver Portfólio</a>
 
   <div class="hero-arrow">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -483,13 +280,13 @@
 </section>
 
 <!-- SOBRE NÓS -->
+
 <section id="sobre">
   <div class="section-center">
-    <h2 class="section-title">##########</h2>
+    <h2 class="section-title">Sobre Nós</h2>
     <div class="title-line"></div>
-    <p class="section-desc">########## ########## ########## ########## ########## ########## ########## ########## ########## ##########.</p>
+    <p class="section-desc">Somos uma equipe apaixonada por capturar a essência de cada momento. Combinamos técnica, criatividade e sensibilidade para criar imagens que contam histórias autênticas e emocionantes.</p>
   </div>
-
   <div class="cards">
     <div class="card">
       <div class="card-icon">
@@ -497,8 +294,8 @@
           <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
         </svg>
       </div>
-      <h3>##########</h3>
-      <p>########## ########## ########## ##########</p>
+      <h3>Paixão</h3>
+      <p>Cada projeto é feito com dedicação e amor pelos detalhes</p>
     </div>
     <div class="card">
       <div class="card-icon">
@@ -506,8 +303,8 @@
           <circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/>
         </svg>
       </div>
-      <h3>##########</h3>
-      <p>########## ########## ########## ##########</p>
+      <h3>Excelência</h3>
+      <p>Equipamentos profissionais e técnicas de ponta</p>
     </div>
     <div class="card">
       <div class="card-icon">
@@ -517,32 +314,28 @@
           <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
         </svg>
       </div>
-      <h3>##########</h3>
-      <p>########## ########## ########## ##########</p>
+      <h3>Experiência</h3>
+      <p>Mais de 10 anos transformando momentos em memórias</p>
     </div>
   </div>
 </section>
 
 <!-- PORTFÓLIO -->
+
 <section id="portfolio">
   <div class="section-center">
-    <h2 class="section-title">##########</h2>
+    <h2 class="section-title">Nosso Portfólio</h2>
     <div class="title-line"></div>
-    <p class="section-desc">########## ########## ########## ########## ##########</p>
+    <p class="section-desc">Explore nossos trabalhos e descubra a qualidade que entregamos em cada projeto</p>
   </div>
-
   <div class="tabs">
-    <button class="tab active" onclick="switchTab(this,'casamentos')">##########</button>
-    <button class="tab" onclick="switchTab(this,'retratos')">##########</button>
-    <button class="tab" onclick="switchTab(this,'eventos')">##########</button>
-    <button class="tab" onclick="switchTab(this,'cinema')">##########</button>
+    <button class="tab active" onclick="switchTab(this,'casamentos')">Casamentos</button>
+    <button class="tab" onclick="switchTab(this,'retratos')">Retratos</button>
+    <button class="tab" onclick="switchTab(this,'eventos')">Eventos</button>
+    <button class="tab" onclick="switchTab(this,'cinema')">Cinema</button>
   </div>
-
-  <!-- BIG CAROUSEL -->
   <div class="big-carousel">
-    <div class="big-track" id="bigTrack">
-      <!-- slides injetados via JS -->
-    </div>
+    <div class="big-track" id="bigTrack"></div>
     <div class="carousel-arr arr-left" onclick="prevBig()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
     </div>
@@ -550,115 +343,106 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
     </div>
   </div>
-
   <div class="dots" id="dotsRow"></div>
   <div class="thumb-grid" id="thumbGrid"></div>
 </section>
 
 <!-- EQUIPE -->
+
 <section id="equipe">
   <div class="section-center">
-    <h2 class="section-title">##########</h2>
+    <h2 class="section-title">Nossa Equipe</h2>
     <div class="title-line"></div>
-    <p class="section-desc">########## ########## ########## ########## ##########</p>
+    <p class="section-desc">Conheça os profissionais dedicados que transformam suas visões em realidade</p>
   </div>
-
   <div class="team-grid">
-    <div class="member">
-      <div class="member-photo">
-        <div class="ph-member">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-      </div>
-      <div class="member-info">
-        <div class="member-name">##########</div>
-        <div class="member-role">##########</div>
-        <div class="member-contact">
-          <a href="mailto:#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            ##########@##########.com
-          </a>
-          <a href="tel:#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16z"/></svg>
-            +## (##) #####-####
-          </a>
-          <a href="#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-            @##########
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <div class="member">
-      <div class="member-photo">
-        <div class="ph-member">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-      </div>
-      <div class="member-info">
-        <div class="member-name">##########</div>
-        <div class="member-role">##########</div>
-        <div class="member-contact">
-          <a href="mailto:#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            ##########@##########.com
-          </a>
-          <a href="tel:#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16z"/></svg>
-            +## (##) #####-####
-          </a>
-          <a href="#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-            @##########
-          </a>
-        </div>
-      </div>
+```
+<div class="member">
+  <div class="member-photo">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Rafael Silva">
+  </div>
+  <div class="member-info">
+    <div class="member-name">Rafael Silva</div>
+    <div class="member-role">Fotógrafo Principal</div>
+    <div class="member-contact">
+      <a href="mailto:rafael@lensfocus.com" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        rafael@lensfocus.com
+      </a>
+      <a href="tel:+5511987654321" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.122.489.266.975.43 1.45a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.48.164.966.296 1.45.43A2 2 0 0122 16z"/></svg>
+        +55 (11) 98765-4321
+      </a>
+      <a href="https://instagram.com" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        @rafaelsilva
+      </a>
     </div>
+  </div>
+</div>
 
-    <div class="member">
-      <div class="member-photo">
-        <div class="ph-member">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-      </div>
-      <div class="member-info">
-        <div class="member-name">##########</div>
-        <div class="member-role">##########</div>
-        <div class="member-contact">
-          <a href="mailto:#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            ##########@##########.com
-          </a>
-          <a href="tel:#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16z"/></svg>
-            +## (##) #####-####
-          </a>
-          <a href="#" class="mc-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-            @##########
-          </a>
-        </div>
-      </div>
+<div class="member">
+  <div class="member-photo">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Mariana Costa">
+  </div>
+  <div class="member-info">
+    <div class="member-name">Mariana Costa</div>
+    <div class="member-role">Fotógrafa & Editora</div>
+    <div class="member-contact">
+      <a href="mailto:mariana@lensfocus.com" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        mariana@lensfocus.com
+      </a>
+      <a href="tel:+5511987654322" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.122.489.266.975.43 1.45a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.48.164.966.296 1.45.43A2 2 0 0122 16z"/></svg>
+        +55 (11) 98765-4322
+      </a>
+      <a href="https://instagram.com" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        @marianacosta
+      </a>
     </div>
+  </div>
+</div>
+
+<div class="member">
+  <div class="member-photo">
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" alt="Lucas Oliveira">
+  </div>
+  <div class="member-info">
+    <div class="member-name">Lucas Oliveira</div>
+    <div class="member-role">Videógrafo & Cinegrafista</div>
+    <div class="member-contact">
+      <a href="mailto:lucas@lensfocus.com" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        lucas@lensfocus.com
+      </a>
+      <a href="tel:+5511987654323" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.122.489.266.975.43 1.45a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.48.164.966.296 1.45.43A2 2 0 0122 16z"/></svg>
+        +55 (11) 98765-4323
+      </a>
+      <a href="https://instagram.com" class="mc-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        @lucasoliveira
+      </a>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
 <!-- NOS VISITE -->
+
 <section id="visite">
   <div class="visite-inner">
     <div class="section-center">
-      <h2 class="section-title">##########</h2>
+      <h2 class="section-title">Nos Visite</h2>
       <div class="title-line"></div>
-      <p class="section-desc">########## ########## ########## ########## ##########</p>
+      <p class="section-desc">Venha conhecer nosso estúdio e conversar sobre seu próximo projeto</p>
     </div>
-
     <div class="visite-grid">
       <div class="visite-contacts">
         <div class="contact-row">
@@ -666,17 +450,17 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <div class="contact-label">##########</div>
-            <span class="contact-val">########## #### — ##########, ########## — ##</span>
+            <div class="contact-label">Endereço</div>
+            <span class="contact-val">Av. Paulista, 1000 — Bela Vista, São Paulo — SP</span>
           </div>
         </div>
         <div class="contact-row">
           <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 019 18.1 19.5 19.5 0 012.91 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.122.489.266.975.43 1.45a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.48.164.966.296 1.45.43A2 2 0 0122 16z"/></svg>
           </div>
           <div>
-            <div class="contact-label">##########</div>
-            <a href="tel:#" class="contact-val">+## (##) ####-####</a>
+            <div class="contact-label">Telefone</div>
+            <a href="tel:+551134567890" class="contact-val">+55 (11) 3456-7890</a>
           </div>
         </div>
         <div class="contact-row">
@@ -684,8 +468,8 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <div>
-            <div class="contact-label">##########</div>
-            <a href="mailto:#" class="contact-val">##########@##########.com</a>
+            <div class="contact-label">E-mail</div>
+            <a href="mailto:contato@lensfocus.com" class="contact-val">contato@lensfocus.com</a>
           </div>
         </div>
         <div class="contact-row">
@@ -693,12 +477,11 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
           </div>
           <div>
-            <div class="contact-label">##########</div>
-            <span class="contact-val">########## ## ##########: ##h – ##h</span>
+            <div class="contact-label">Horário</div>
+            <span class="contact-val">Segunda a Sexta: 9h – 18h</span>
           </div>
         </div>
       </div>
-
       <div class="map-side">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1!2d-46.6526!3d-23.5632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
@@ -710,82 +493,110 @@
 </section>
 
 <!-- FOOTER -->
+
 <footer>
   <a href="#home" class="footer-logo">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
       <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
       <circle cx="12" cy="13" r="4"/>
     </svg>
-    ##########
+    LensFocus
   </a>
-  <span class="footer-copy">© #### ##########. ########## ########## ##########.</span>
+  <span class="footer-copy">© 2025 LensFocus. Todos os direitos reservados.</span>
   <div class="footer-links">
-    <a href="#sobre">##########</a>
-    <a href="#portfolio">##########</a>
-    <a href="#equipe">##########</a>
-    <a href="#visite">##########</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#visite">Contato</a>
   </div>
 </footer>
 
 <script>
 const albumData = {
-  casamentos: ['##########','##########','##########','##########','##########','##########'],
-  retratos:   ['##########','##########','##########','##########','##########','##########'],
-  eventos:    ['##########','##########','##########','##########','##########','##########'],
-  cinema:     ['##########','##########','##########','##########','##########','##########']
+  casamentos: [
+    { title: 'Ana & Pedro — Serra da Mantiqueira',  img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80' },
+    { title: 'Julia & Carlos — Fazenda Santa Clara', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80' },
+    { title: 'Mariana & Felipe — Casamento na Praia', img: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&q=80' },
+    { title: 'Cerimônia ao Ar Livre',                img: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200&q=80' },
+    { title: 'Recepção & Festa',                     img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80' },
+    { title: 'Detalhes & Flores',                    img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=1200&q=80' },
+  ],
+  retratos: [
+    { title: 'Ensaio Feminino — Luz Natural',  img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80' },
+    { title: 'Retrato Urbano',                 img: 'https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=1200&q=80' },
+    { title: 'Ensaio Masculino — Estúdio',     img: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=1200&q=80' },
+    { title: 'Retrato Artístico',              img: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1200&q=80' },
+    { title: 'Ensaio Externo — Jardim',        img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=1200&q=80' },
+    { title: 'Silhueta & Contraluz',           img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=80' },
+  ],
+  eventos: [
+    { title: 'Congresso Corporativo 2024',      img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80' },
+    { title: 'Formatura Medicina USP',          img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80' },
+    { title: 'Aniversário 15 Anos — Maria',     img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80' },
+    { title: 'Show ao Vivo — Teatro Municipal', img: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1200&q=80' },
+    { title: 'Jantar de Gala',                  img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80' },
+    { title: 'Lançamento de Produto',           img: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&q=80' },
+  ],
+  cinema: [
+    { title: 'Curta-Metragem "Silêncio"',    img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80' },
+    { title: 'Making Of — Set de Filmagem',  img: 'https://images.unsplash.com/photo-1578022761797-b8636ac1773c?w=1200&q=80' },
+    { title: 'Clipe Musical — Banda Névoa',  img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80' },
+    { title: 'Documentário "Raízes"',        img: 'https://images.unsplash.com/photo-1554941068-a252680f00cb?w=1200&q=80' },
+    { title: 'Filme Institucional',          img: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200&q=80' },
+    { title: 'Produção Publicitária',        img: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?w=1200&q=80' },
+  ],
 };
 
 let currentAlbum = 'casamentos';
 let currentSlide = 0;
 
-function buildPortfolio(album){
-  const items = albumData[album];
-  const track = document.getElementById('bigTrack');
-  const dots  = document.getElementById('dotsRow');
-  const thumbs= document.getElementById('thumbGrid');
+function buildPortfolio(album) {
+  const items  = albumData[album];
+  const track  = document.getElementById('bigTrack');
+  const dots   = document.getElementById('dotsRow');
+  const thumbs = document.getElementById('thumbGrid');
   track.innerHTML = ''; dots.innerHTML = ''; thumbs.innerHTML = '';
   currentSlide = 0;
 
-  items.forEach((title,i)=>{
-    // big slide
+  items.forEach((item, i) => {
     const s = document.createElement('div');
-    s.className='big-slide';
-    s.innerHTML=`<div class="ph"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>${title}</span></div>`;
+    s.className = 'big-slide';
+    s.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
     track.appendChild(s);
 
-    // dot
-    const d=document.createElement('div');
-    d.className='dot'+(i===0?' active':'');
-    d.onclick=()=>goTo(i);
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
     dots.appendChild(d);
 
-    // thumb
-    const t=document.createElement('div');
-    t.className='thumb'+(i===0?' active':'');
-    t.innerHTML=`<div class="ph-sm">${title}</div>`;
-    t.onclick=()=>goTo(i);
+    const t = document.createElement('div');
+    t.className = 'thumb' + (i === 0 ? ' active' : '');
+    t.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
+    t.onclick = () => goTo(i);
     thumbs.appendChild(t);
   });
 }
 
-function goTo(i){
+function goTo(i) {
   const items = albumData[currentAlbum];
-  currentSlide = Math.max(0, Math.min(i, items.length-1));
-  document.getElementById('bigTrack').style.transform=`translateX(-${currentSlide*100}%)`;
-  document.querySelectorAll('.dot').forEach((d,idx)=>d.classList.toggle('active',idx===currentSlide));
-  document.querySelectorAll('.thumb').forEach((t,idx)=>t.classList.toggle('active',idx===currentSlide));
+  currentSlide = Math.max(0, Math.min(i, items.length - 1));
+  document.getElementById('bigTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('active', idx === currentSlide));
+  document.querySelectorAll('.thumb').forEach((t, idx) => t.classList.toggle('active', idx === currentSlide));
 }
-function nextBig(){ goTo(currentSlide+1); }
-function prevBig(){ goTo(currentSlide-1); }
 
-function switchTab(btn, album){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+function nextBig() { goTo(currentSlide + 1); }
+function prevBig() { goTo(currentSlide - 1); }
+
+function switchTab(btn, album) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
-  currentAlbum=album;
+  currentAlbum = album;
   buildPortfolio(album);
 }
 
 buildPortfolio('casamentos');
 </script>
+
 </body>
 </html>
